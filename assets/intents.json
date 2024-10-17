@@ -1,0 +1,185 @@
+{
+    "intents": [{
+            "tag": "greeting",
+            "patterns": [
+                "Hello",
+                "Hi",
+                "Hey",
+                "Hi there",
+                "Hey there",
+                "Good morning",
+                "Good afternoon",
+                "Good evening"
+            ],
+            "responses": [
+                "Hello! How can I help you?",
+                "Hi there! What can I assist you with?",
+                "Hey! What can I do for you today?",
+                "Hi! How can I be of service?",
+                "Greetings! What brings you here?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Take care",
+                "Have a good day",
+                "See ya"
+            ],
+            "responses": [
+                "Goodbye! Have a great day.",
+                "See you later!",
+                "Take care.",
+                "Thanks for chatting! Bye for now."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Appreciate it",
+                "Thanks a lot",
+                "Thank you so much"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem.",
+                "Glad to help.",
+                "Anytime!",
+                "My pleasure."
+            ]
+        },
+        {
+            "tag": "name",
+            "patterns": [
+                "What is your name?",
+                "Who are you?",
+                "What should I call you?",
+                "Do you have a name?",
+                "What do you go by?"
+            ],
+            "responses": [
+                "My name is Guru.",
+                "I'm Guru, nice to meet you!",
+                "You can call me Guru."
+            ]
+        },
+        {
+            "tag": "help",
+            "patterns": [
+                "Can you help me?",
+                "What can you help me with?",
+                "I need help",
+                "Help me please"
+            ],
+            "responses": [
+                "Of course! What do you need help with?",
+                "Sure thing. What can I assist you with?",
+                "I'm here to help! What do you need assistance with?"
+            ]
+        },
+        {
+            "tag": "joke",
+            "patterns": [
+                "Tell me a joke",
+                "Do you know any jokes?",
+                "Can you make me laugh?",
+                "Make me laugh"
+            ],
+            "responses": [
+                "Why did the tomato turn red? Because it saw the salad dressing!",
+                "Why did the chicken cross the playground? To get to the other slide!",
+                "Why do seagulls fly over the sea? Because if they flew over the bay, they'd be bagels!",
+                "Why couldn't the bicycle stand up by itself? Because it was two-tired!"
+            ]
+        },
+        {
+            "tag": "weather",
+            "patterns": [
+                "What's the weather like today?",
+                "Will it rain today?",
+                "How hot is it outside?",
+                "What's the temperature?",
+                "Is it sunny outside?",
+                "Do I need an umbrella?",
+                "How's the weather?"
+            ],
+            "responses": [
+                "I'm sorry, I don't have access to current weather information.",
+                "I'm not sure. You can check the weather forecast online or through a weather app.",
+                "I'm afraid I can't provide you with weather updates at this time."
+            ]
+        },
+        {
+            "tag": "how_are_you",
+            "patterns": [
+                "How are you?",
+                "How's it going?",
+                "How are things?",
+                "How do you do?"
+            ],
+            "responses": [
+                "I'm doing well, thank you for asking.",
+                "I'm good, thanks for asking!",
+                "I'm doing great, thanks for asking!",
+                "I'm fine, thanks for asking. How can I assist you?"
+            ]
+        },
+        {
+            "tag": "what_is_python",
+            "patterns": [
+                "What is Python?",
+                "Can you tell me about Python?",
+                "What are the features of Python?"
+            ],
+            "responses": [
+                "Python is a high-level, interpreted programming language. It has a design philosophy which emphasizes code readability and syntax that allows programmers to express concepts in fewer lines of code than would be possible in languages like C++ or Java.",
+                "Python is an interpreted, high-level, general-purpose programming language. It is designed to be easy to read and write, with an emphasis on code readability, and has a syntax that allows programmers to express concepts in fewer lines of code than might be possible in other languages.",
+                "Python is an interpreted, high-level, general-purpose programming language. It has a dynamic type system and automatic memory management, and supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in other languages."
+            ]
+        },
+        {
+            "tag": "what_is_javascript",
+            "patterns": [
+                "What is JavaScript?",
+                "Can you tell me about JavaScript?",
+                "What are the features of JavaScript?"
+            ],
+            "responses": [
+                "JavaScript is a scripting language used to create and control dynamic website content, i.e. anything that moves, refreshes, or otherwise changes on your screen without requiring you to manually reload a web page. It is the de facto programming language of the web and is supported by all modern web browsers.",
+                "JavaScript is a high-level, interpreted programming language that is primarily used for client-side scripting in web development. It is a dynamic, weakly typed language that is commonly used to create interactive effects within web browsers.",
+                "JavaScript is a programming language that is primarily used to create interactive and dynamic effects within web browsers. It is an object-oriented language that is based on the ECMAScript standard and is typically used for client-side scripting in web development."
+            ]
+        },
+        {
+            "tag": "what_is_rust",
+            "patterns": [
+                "What is Rust?",
+                "Can you tell me about Rust?",
+                "What are the features of Rust?"
+            ],
+            "responses": [
+                "Rust is a multi-paradigm programming language designed for performance and safety, especially in systems programming. It is syntactically similar to C++ and includes modern language features such as zero-cost abstractions, threads without data races, and memory safety without garbage collection.",
+                "Rust is a systems programming language that combines low-level control over computer hardware with high-level abstractions that make it easier to write correct and efficient code. It is designed to be safe, fast, and concurrent, with a focus on preventing common programming errors such as null pointer dereferences and buffer overflows.",
+                "Rust is a modern systems programming language that offers performance and safety guarantees through its strong type system and borrow checker. It is designed to be memory safe and thread safe, making it ideal for systems programming and writing high-performance software."
+            ]
+        },
+        {
+            "tag": "why_use_rust",
+            "patterns": [
+                "Why use Rust?",
+                "What are the benefits of Rust?",
+                "What are the advantages of Rust?"
+            ],
+            "responses": [
+                "Rust provides a number of benefits for systems programming, including memory safety, concurrency, and performance. It allows developers to write code that is both fast and safe, with a modern type system that prevents common programming errors. Additionally, Rust has a growing ecosystem of libraries and tools that make it easier to develop and maintain complex software projects.",
+                "Rust's benefits include its strong type system, memory safety, and performance, which make it well-suited for systems programming. Its borrow checker ensures that programs are free of data races and other memory-related bugs. Rust also has a modern syntax and a growing community of developers and libraries, making it an increasingly popular choice for developing high-performance software.",
+                "Rust offers several advantages for systems programming, including its memory safety and performance, which make it ideal for writing high-performance software."
+            ]
+        }
+    ]
+}
