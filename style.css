@@ -25,6 +25,9 @@ body {
     height: 100vh;
     font-family: "Montserrat";
     font-weight: 600;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 main {
