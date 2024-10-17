@@ -1,0 +1,184 @@
+:root {
+    --cyan: #1DA2F0;
+    --orange: #FD892C;
+    --green: #00EB57;
+    --pink: #FF53DD;
+    --vanila: #F5DFAA;
+    --red: #F10;
+    --magenta: #236AF3;
+    --mint: #13EDA5;
+    --yellow: #FDCF4A;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 1000;
+    font-style: normal;
+}
+
+body {
+    background-color: #101010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+main {
+    width: 800px;
+    height: 480px;
+    background-color: black;
+}
+
+DigiPritel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+eyes {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye {
+    width: 250px;
+    height: 250px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    background-color: var(--cyan);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pupil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+mouth {
+    display: flex; 
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.mouth {
+    width: 500px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--cyan);
+}
+
+.mouthCover {
+    width: 550px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    transform: translateY(-20px);
+}
+
+Menu {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 800px;
+    height: 480px;
+    position: absolute;
+    color: white;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+    font-size: 200%;
+}
+
+Menu h1 {
+    margin-bottom: 25px;
+    text-shadow: 0 0 40px rgba(255,255,255,0.4);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 80%; /* Full width */
+    height: 50px; /* Height of the slider */
+    background: #ddd; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 40px rgba(255,255,255,0.4);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none; /* Remove default styling */
+    width: 75px; /* Width of the thumb */
+    height: 75px; /* Height of the thumb */
+    background: var(--cyan); /* Thumb color */
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+}
+
+.colors {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    /* align-items: center; */
+    background-color: #DDD;
+    padding: 10px 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.4);
+}
+
+.color {
+    width: 60px;
+    height: 60px;
+    margin: 0 5px; 
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+    /* border: 4px solid rgba(0,0,0,0.33);   */
+}
+
+#close {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    cursor: pointer;
+    color: white;
+    /* filter: invert(); */
+    filter: invert(11%) sepia(79%) saturate(7478%) hue-rotate(360deg) brightness(109%) contrast(111%);
+}
+
+.close2 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 50px;
+    cursor: pointer;
+    color: white;
+    /* filter: invert(); */
+    filter: invert(11%) sepia(79%) saturate(7478%) hue-rotate(360deg) brightness(109%) contrast(111%) blur(20px);
+}
+
+#toggle {
+    width: 800px;
+    height: 480px;
+    z-index: 1;
+    position: absolute;
+}

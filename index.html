@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DigiPřítel</title>
+</head>
+<body>
+    <main>
+        <Menu id="menu" style="display: none;">
+            <h1 style="margin-bottom: 25px;">Hlasitost</h1>
+            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <div style="height: 10px; -webkit-user-drag: none; user-select: none;"></div>
+            <h1 style="margin-bottom: 25px;">Barva</h1>
+            <div class="colors">
+                <div onclick="changeColor(event)" class="color" style="background-color: #1DA2F0;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #FD892C;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #00EB57;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #FF53DD;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #F5DFAA;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #F10;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #236AF3;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #13EDA5;"></div>
+                <div onclick="changeColor(event)" class="color" style="background-color: #FDCF4A;"></div>
+            </div>
+            <img src="x.svg" alt="Zavřít" id="close">
+            <img onclick="toggleMenu()" src="x.svg" class="close2">
+        </Menu>
+        <div onclick="toggleMenu()" id="toggle"></div>
+        <DigiPritel>
+            <eyes>
+                <div id="color" class="eye" style="margin-right: 250px;">
+                    <div class="pupil" style="margin-right: -25px; margin-top: 25px;"></div>
+                </div>
+                <div id="color" class="eye">
+                    <div class="pupil" style="margin-right: 25px; margin-top: 25px;"></div>
+                </div>
+            </eyes>
+            <mouth>
+                <div class="mouthCover"></div>
+                <div id="color" class="mouth"></div>
+            </mouth>
+        </DigiPritel>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
