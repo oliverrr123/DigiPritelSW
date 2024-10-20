@@ -11,6 +11,7 @@ import math
 from nltk.stem import WordNetLemmatizer
 import random
 from flask import Flask, render_template
+import json
 
 ssl._create_default_https_context = ssl._create_unverified_context
 nltk.download("punkt", quiet=True)
@@ -128,19 +129,40 @@ def get_response(message):
         'Content-Type': 'application/json',
         'Authorization': 'aivanna-Hr5RNVdhGju0TZXmv0jc0tmJo2Y876seqlJ5QX71NLl48xslex'
     }
-    data = {
-        'messages': [
-            {'role': 'user', 'content': 'Jsi hlasový asistent pro seniory, který má za úkol pomoci s každodenními úkoly. Pokud se tě senior zeptá na něco ohledně technologií a nebudeš vědět, odpověz pouze nevím.'},
-            {'role': 'user', 'content': message}
-        ],
-        'model': 'digi-pritel'
+    with open('chat.json', 'r') as json_file:
+        chat_data = json.load(json_file)
+
+    new_message = {
+        'role': 'user',
+        'content': message
     }
+
+    chat_data['messages'].append(new_message)
+
+
+    # data = {
+    #     'messages': [
+    #         {'role': 'user', 'content': 'Jsi hlasový asistent pro seniory, který má za úkol pomoci s každodenními úkoly. Pokud se tě senior zeptá na něco ohledně technologií a nebudeš vědět, odpověz pouze nevím.'},
+    #         {'role': 'user', 'content': message}
+    #     ],
+    #     'model': 'digi-pritel'
+    # }
     
     # updateState("AI start")
     # updateState("Přemýšlím...")
     
-    response = requests.post(url, headers=headers, json=data)
+    response = requests.post(url, headers=headers, json=chat_data)
+
+    new_message = {
+        'role': 'system',
+        'content': response.json()['message']
+    }
+
+    chat_data['messages'].append(new_message)
     
+    with open('chat.json', 'w') as json_file:
+        json.dump(chat_data, json_file)
+
     print(response.json())
     return response.json()['message']
     
