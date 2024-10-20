@@ -28,12 +28,13 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    background-color:white;
 }
 
 main {
     width: 800px;
     height: 480px;
-    background-color: black;
+    background-color: white;
 }
 
 DigiPritel {

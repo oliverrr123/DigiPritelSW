@@ -36,6 +36,17 @@ running = True
 
 # print(f"Response: {response.json()}")
 
+text = {'content': 'hello'}
+url = 'http://127.0.0.1:5000/updatestate'
+response = requests.post(url, json=text)
+print(response.json())
+
+def updateState(text):
+    text = {'content': text}
+    url = 'http://127.0.0.1:5000/updatestate'
+    requests.post(url, json=text)
+    # return text
+
 current_slider_value = 50
 
 # def check_slider(slider_value):
@@ -74,30 +85,38 @@ def voice_command_processor(talking_queue, ask=False):
         if ask:
             audio_playback("What's your command?", talking_queue)
         print('LISTENING')
+        updateState('Listening')
         audio = r.listen(source, phrase_time_limit=4)  # Listen to the microphone
         print('WAITING')
+        updateState('Waiting')
+        updateState('TTS start')
         text = ''  # Preset for the spoken phrase
         try:
             text = r.recognize_google(audio, language='cs')  # Convert speech to text
         except:
             print('Didnt understand')
-            audio_playback('Pardon, muzete to prosim zopakovat?', talking_queue)
+            # audio_playback('Pardon, můžete to prosím zopakovat?', talking_queue)
             text=''
         if text == '':  # If it's silent, AI will ignore
             print('')
         else:
             print(f"User: {text}")  # Display the spoken phrase
+        updateState("TTS stop")
         return text.lower()
 
 def audio_playback(text, talking_queue):
     language = 'cs'#jazyk hlasové výslovnosti
     voice = gTTS(text=text, lang=language) #vytvoření hlasového modelu
+    updateState(1)
     voice.save("Voice.mp3") # uložení hlasového modelu
-    sound = AudioSegment.from_mp3('Voice.mp3')
-    sound.export('Voice.wav', format='wav')
+    #updateState(2)
+    #sound = AudioSegment.from_mp3('Voice.mp3')
+    #updateState(3)
+    #sound.export('Voice.wav', format='wav')
     print('TALKING')
+    updateState('Talking')
     talking_queue.put(True)
-    os.system('aplay Voice.wav')
+    os.system('ffplay -v 0 -nodisp -autoexit Voice.mp3')
     talking_queue.put(False)
     print(text)
 
@@ -116,6 +135,8 @@ def get_response(message):
         ],
         'model': 'digi-pritel'
     }
+    
+    updateState("AI start")
     
     response = requests.post(url, headers=headers, json=data)
     
@@ -140,6 +161,7 @@ def execute_voice_command(text, talking_queue): #zařizuje možnost odpovědí h
         message = text
         #intents = predict_class(message)
         response = get_response(message)
+        updateState("AI stop")
         audio_playback(response, talking_queue)
 
 
