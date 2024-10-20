@@ -6,7 +6,7 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 
 slider_value = 50
-state = "ok"
+state = "Probouzím se..."
 
 @app.route('/', methods=['GET'])
 def home():

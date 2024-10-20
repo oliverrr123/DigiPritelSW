@@ -36,7 +36,7 @@ running = True
 
 # print(f"Response: {response.json()}")
 
-text = {'content': 'hello'}
+text = {'content': 'Ahoj!'}
 url = 'http://127.0.0.1:5000/updatestate'
 response = requests.post(url, json=text)
 print(response.json())
@@ -85,11 +85,11 @@ def voice_command_processor(talking_queue, ask=False):
         if ask:
             audio_playback("What's your command?", talking_queue)
         print('LISTENING')
-        updateState('Listening')
+        updateState('Poslouchám...')
         audio = r.listen(source, phrase_time_limit=4)  # Listen to the microphone
         print('WAITING')
-        updateState('Waiting')
-        updateState('TTS start')
+        updateState('Zpracovávám...')
+        # updateState('TTS start')
         text = ''  # Preset for the spoken phrase
         try:
             text = r.recognize_google(audio, language='cs')  # Convert speech to text
@@ -101,20 +101,20 @@ def voice_command_processor(talking_queue, ask=False):
             print('')
         else:
             print(f"User: {text}")  # Display the spoken phrase
-        updateState("TTS stop")
+        # updateState("TTS stop")
         return text.lower()
 
 def audio_playback(text, talking_queue):
     language = 'cs'#jazyk hlasové výslovnosti
     voice = gTTS(text=text, lang=language) #vytvoření hlasového modelu
-    updateState(1)
+    #updateState(1)
     voice.save("Voice.mp3") # uložení hlasového modelu
     #updateState(2)
     #sound = AudioSegment.from_mp3('Voice.mp3')
     #updateState(3)
     #sound.export('Voice.wav', format='wav')
     print('TALKING')
-    updateState('Talking')
+    # updateState(text)
     talking_queue.put(True)
     os.system('ffplay -v 0 -nodisp -autoexit Voice.mp3')
     talking_queue.put(False)
@@ -136,7 +136,8 @@ def get_response(message):
         'model': 'digi-pritel'
     }
     
-    updateState("AI start")
+    # updateState("AI start")
+    # updateState("Přemýšlím...")
     
     response = requests.post(url, headers=headers, json=data)
     
@@ -161,7 +162,7 @@ def execute_voice_command(text, talking_queue): #zařizuje možnost odpovědí h
         message = text
         #intents = predict_class(message)
         response = get_response(message)
-        updateState("AI stop")
+        # updateState("AI stop")
         audio_playback(response, talking_queue)
 
 
@@ -170,6 +171,7 @@ def kripl(talking_queue):
     while True:
         if config.VOICE == True:
             command = voice_command_processor(talking_queue)
+            updateState(command)
             execute_voice_command(command, talking_queue)
         elif config.VOICE == False:
             message = input('[?] >> ')

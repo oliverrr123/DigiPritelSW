@@ -52,7 +52,7 @@ eyes {
 .eye {
     width: 250px;
     height: 250px;
-    margin-top: 25px;
+    margin-top: 45px;
     margin-bottom: 25px;
     border-radius: 50%;
     background-color: var(--cyan);
@@ -184,4 +184,14 @@ input[type="range"]::-webkit-slider-thumb {
     height: 480px;
     z-index: 1;
     position: absolute;
+}
+
+#state {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    #top: 10px;
+    color: white;
 }
