@@ -4,7 +4,7 @@
     --green: #00EB57;
     --pink: #FF53DD;
     --vanila: #F5DFAA;
-    --red: #F10;
+    --red: #F10;c
     --magenta: #236AF3;
     --mint: #13EDA5;
     --yellow: #FDCF4A;
@@ -28,6 +28,7 @@ body {
     overflow: hidden;
     padding: 0;
     margin: 0;
+    cursor: none !important;
 }
 
 main {
@@ -128,7 +129,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 75px; /* Width of the thumb */
     height: 75px; /* Height of the thumb */
     background: var(--cyan); /* Thumb color */
-    cursor: pointer; /* Pointer cursor */
+    /* cursor: pointer; Pointer cursor */
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
 }
@@ -160,7 +161,7 @@ input[type="range"]::-webkit-slider-thumb {
     top: 10px;
     right: 10px;
     font-size: 50px;
-    cursor: pointer;
+    /* cursor: pointer; */
     color: white;
     /* filter: invert(); */
     filter: invert(11%) sepia(79%) saturate(7478%) hue-rotate(360deg) brightness(109%) contrast(111%);
@@ -173,7 +174,7 @@ input[type="range"]::-webkit-slider-thumb {
     top: -15px;
     right: -15px;
     font-size: 50px;
-    cursor: pointer;
+    /* cursor: pointer; */
     color: white;
     /* filter: invert(); */
     filter: invert(11%) sepia(79%) saturate(7478%) hue-rotate(360deg) brightness(109%) contrast(111%) blur(20px);
